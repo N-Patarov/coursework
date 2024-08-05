@@ -6,9 +6,11 @@ function Header() {
   return (
     <header className="bg-blue-600 text-white p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-xl font-bold">
-          My News App
-        </div>
+        <Link to='/'>
+            <div className="text-xl font-bold">
+            My News App
+            </div>
+        </Link>
         <nav>
           <ul className="flex space-x-4">
             <Link to='/'>

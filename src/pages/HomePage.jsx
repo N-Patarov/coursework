@@ -10,7 +10,7 @@ function HomePage() {
     const [articles, setArticles] = useState([]);
     useEffect(()=>{
         const fetch = async ()=>{
-            const response = await axios.get("http://localhost:8000/api/get/articles/")
+            const response = await axios.get("http://localhost:8000/api/articles/")
             setArticles(response.data)
         }
         fetch()
