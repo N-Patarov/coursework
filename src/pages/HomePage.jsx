@@ -4,8 +4,7 @@ import Card from '../components/Card';
 import CardGrid from '../components/CardGrid';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Register from '../components/Register';
-import Login from '../components/Login';
+
 function HomePage() {
     const [articles, setArticles] = useState([]);
     useEffect(()=>{
@@ -19,7 +18,7 @@ function HomePage() {
   return (
     <>
       <Header />          
-      <Login />
+      <CardGrid articles={articles}/>
     </>
     
   );

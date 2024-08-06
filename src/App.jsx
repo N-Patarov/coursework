@@ -8,6 +8,11 @@ import AdminPage from './pages/AdminPage';
 import Article from './components/Article';
 import ArticlePage from './pages/ArticlePage'
 import Profile from './components/Profile';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import ProfilePage from './pages/ProfilePage';
+import WriteArticlePage from './pages/WriteArticlePage';
+import AdminLogin from './components/AdminLogin';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
@@ -19,8 +24,12 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/admin" element={<AdminPage />} />
+      <Route path="/admin/publish" element={<WriteArticlePage />} />
+      <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/article/:id" element={<ArticlePage />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
 
     </Routes>
   </BrowserRouter>

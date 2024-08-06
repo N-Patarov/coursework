@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login(){
+export default function AdminLogin(){
     const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
@@ -15,12 +15,14 @@ export default function Login(){
         e.preventDefault();
 
         const formData = {
-        email,
-        password,
+            
+            'email': email,
+            'password':password
+        
         };
-
+        console.log(formData)
         try {
-        const response = await axios.post('http://localhost:8000/api/login', formData, {
+        const response = await axios.post('http://localhost:8000/api/admin/login', formData, {
             headers: {
             'Content-Type': 'application/json',
             },
@@ -35,7 +37,7 @@ export default function Login(){
 
         } catch (error) {
         console.error('Error logging in user:', error);
-        setError('Invalid email or password');
+        setError(error.response.data.error);
         }
   };
     return(

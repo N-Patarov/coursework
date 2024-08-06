@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from 'react-router-dom';
+import YouAreNotLoggedIn from "./YouAreNotLoggedIn";
 
 export default function Profile(){
     const navigate = useNavigate(); // Use React Router's useHistory hook for navigation
 
-    const[isLoged,setIsLoged] = useState(false);
+    const[isLogged,setIsLogged] = useState(false);
     const [decodedToken, setDecodedToken] = useState(null);
     const [userId, setUserId] = useState(null);
     const [userName, setUserName] = useState(null);
@@ -22,14 +23,14 @@ export default function Profile(){
                 const decoded = jwtDecode(token);
                 setDecodedToken(decoded); // Set decoded token state
                 setUserId(decoded.userId);
-                setIsLoged(true)
+                setIsLogged(true)
                 const userData = await axios.get("http://localhost:8000/api/search/user?userId=" + decoded.userId);
                 setUserName(userData.data.username);
                 setEmail(userData.data.email);
               }
             } catch (error) {
               console.error('Error decoding token:', error);
-              setIsLoged(false)
+              setIsLogged(false)
             }
           };
           getToken();
@@ -38,18 +39,18 @@ export default function Profile(){
     function handleLogout () {
         // Remove token from local storage
         localStorage.removeItem('token');
-        setIsLoged(false)
+        setIsLogged(false)
         navigate("/");
     }
     function Greet(){
-        if(isLoged){
+        if(isLogged){
             return(
             <div className="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
                     <h1 className="text-2xl font-bold text-gray-900">Welcome, {userName}!</h1>
                     <div className="mt-4">
-                        <p class="text-gray-600">Email: {email}</p>
-                        <p class="text-gray-600">We're glad to have you back.</p>
-                        <p class="text-gray-600">Feel free to explore and enjoy your personalized experience.</p>
+                        <p className="text-gray-600">Email: {email}</p>
+                        <p className="text-gray-600">We're glad to have you back.</p>
+                        <p className="text-gray-600">Feel free to explore and enjoy your personalized experience.</p>
                     </div>
                     <div className="mt-6">
                         <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
@@ -65,7 +66,7 @@ export default function Profile(){
             </div>
             )
         }else{
-            return(<h1>You are not logged in!</h1>)
+            return(<YouAreNotLoggedIn />)
         }
     }
     console.log(userId);
