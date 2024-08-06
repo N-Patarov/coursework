@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
-export default function Register(){
+export default function AdminRegister(){
     const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
@@ -28,13 +28,13 @@ export default function Register(){
       };
   
       try {
-        const response = await axios.post('http://localhost:8000/api/register', formData, {
+        const response = await axios.post('http://localhost:8000/api/admin/register', formData, {
           headers: {
             'Content-Type': 'application/json',
           },
         });
   
-        setSuccess('User registered successfully');
+        setSuccess('Admin registered successfully');
         setError('');
         console.log(response.data);
         navigate("/login");

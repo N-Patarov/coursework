@@ -16,7 +16,7 @@ export default function YouAreNotAdmin() {
           Login
         </button>
         <button
-          onClick={() => navigate('/register')} // Navigate to register page
+          onClick={() => navigate('/admin/register')} // Navigate to register page
           className="px-4 py-2 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75"
         >
           Register

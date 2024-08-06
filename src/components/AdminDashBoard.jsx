@@ -1,7 +1,10 @@
 import React from "react";
 import UserList from "./UserList";
+import { useNavigate } from 'react-router-dom';
 
 export default function AdminDashBoard(){
+    const navigate = useNavigate();
+
     return(
             <div className="flex flex-col items-center justify-center p-6">
                 <div className="mb-4">

@@ -13,7 +13,7 @@ export default function Profile(){
     const [userId, setUserId] = useState(null);
     const [userName, setUserName] = useState(null);
     const [email, setEmail] = useState(null);
-
+    const [isAdmin, setIsAdmin] = useState(false)
 
     useEffect(() => {
         const getToken = async () => {
@@ -27,6 +27,9 @@ export default function Profile(){
                 const userData = await axios.get("http://localhost:8000/api/search/user?userId=" + decoded.userId);
                 setUserName(userData.data.username);
                 setEmail(userData.data.email);
+                if(userData.data.role){
+                    setIsAdmin(true);
+                }
               }
             } catch (error) {
               console.error('Error decoding token:', error);
@@ -49,6 +52,7 @@ export default function Profile(){
                     <h1 className="text-2xl font-bold text-gray-900">Welcome, {userName}!</h1>
                     <div className="mt-4">
                         <p className="text-gray-600">Email: {email}</p>
+                        <p className="text-gray-600">{isAdmin ? "Role: admin" : ""}</p>
                         <p className="text-gray-600">We're glad to have you back.</p>
                         <p className="text-gray-600">Feel free to explore and enjoy your personalized experience.</p>
                     </div>

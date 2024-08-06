@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import WriteArticlePage from './pages/WriteArticlePage';
 import AdminLogin from './components/AdminLogin';
+import AdminRegister from './components/AdminRegister';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
@@ -26,6 +27,7 @@ function App() {
       <Route path="/admin" element={<AdminPage />} />
       <Route path="/admin/publish" element={<WriteArticlePage />} />
       <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin/register" element={<AdminRegister />} />
       <Route path="/article/:id" element={<ArticlePage />} />
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/login" element={<LoginPage />} />
