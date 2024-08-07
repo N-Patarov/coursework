@@ -57,10 +57,6 @@ export default function Profile(){
                         <p className="text-gray-600">Feel free to explore and enjoy your personalized experience.</p>
                     </div>
                     <div className="mt-6">
-                        <button className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                        
-                        Edit Profile
-                        </button>
                         <button className="ml-4 px-4 py-2 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75"
                             onClick={handleLogout}
                         >
