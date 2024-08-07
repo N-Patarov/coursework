@@ -7,10 +7,12 @@ import AdminDashBoard from "../components/AdminDashBoard";
 import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import YouAreNotAdmin from "../components/YouAreNotAdmin";
+import { useAdmin } from '../AdminContext.jsx';
 
 export default function AdminPage(){
+    const {isAdmin, setIsAdmin} = useAdmin();
+
     const navigate = useNavigate(); 
-    const [isAdmin, setIsAdmin] = useState(false);
     const [isLogged, setIsLogged] = useState(false);
 
     useEffect(() => {
@@ -30,7 +32,7 @@ export default function AdminPage(){
           };
           getToken();
        
-    }, []);
+    }, [setIsAdmin]);
 
 
     return(
