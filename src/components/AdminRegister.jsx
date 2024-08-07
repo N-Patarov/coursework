@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import Header from "./Header";
 
 export default function AdminRegister(){
     const navigate = useNavigate();
@@ -44,7 +45,9 @@ export default function AdminRegister(){
       }
     };
     return(
-      <main className="flex-grow flex justify-center items-center">
+        <div>
+            <Header />
+            <main className="flex-grow flex justify-center items-center">
         <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
           <h2 className="text-2xl font-bold text-center">Register</h2>
           <form className="space-y-6" onSubmit={handleRegister}>
@@ -107,5 +110,7 @@ export default function AdminRegister(){
           </form>
         </div>
       </main>
+        </div>
+      
     );
 }

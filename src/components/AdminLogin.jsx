@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
 
 export default function AdminLogin(){
     const navigate = useNavigate();
@@ -41,7 +42,9 @@ export default function AdminLogin(){
         }
   };
     return(
-        <div className="flex justify-center items-center h-screen bg-gray-100">
+        <div>
+            <Header />
+            <div className="flex justify-center items-center h-screen bg-gray-100">
         <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
           <h2 className="text-2xl font-bold text-center">Login</h2>
           <form className="space-y-6" onSubmit={handleLogin}>
@@ -80,5 +83,7 @@ export default function AdminLogin(){
           </form>
         </div>
       </div>
+        </div>
+        
       );
 }
