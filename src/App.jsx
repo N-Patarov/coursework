@@ -14,6 +14,7 @@ import ProfilePage from './pages/ProfilePage';
 import WriteArticlePage from './pages/WriteArticlePage';
 import AdminLogin from './components/AdminLogin';
 import AdminRegister from './components/AdminRegister';
+import EditArticleForm from './components/EditArticleForm';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
@@ -32,6 +33,7 @@ function App() {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/test/edit/:id" element={<EditArticleForm />} />
 
     </Routes>
   </BrowserRouter>
